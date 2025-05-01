@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- TailwindCSS PlayCDN-->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Daisy UI CDN  -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- Daisy UI All Themes -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+
+  <!-- Google Fonts: - Noto Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <title>PDF Maker</title> 
+  
+  <!-- Google Font Style -->
+  <style type="text/css">
+    /* Custom Syles other than TailwindCSS */
+    /* Normal */
+    .noto-sans-thin {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 100;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-extralight {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 200;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-light {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-regular {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-medium {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-semibold {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-bold {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-extrabold {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 800;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-black {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 900;
+      font-style: normal;
+      font-variation-settings: "wdth" 100;
+    }
+
+    /* Italics */
+    .noto-sans-thin-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 100;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-extralight-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 200;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-light-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-regular-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 400;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-medium-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 500;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-semibold-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-bold-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-extrabold-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 800;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+
+    .noto-sans-black-italic {
+      font-family: "Noto Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 900;
+      font-style: italic;
+      font-variation-settings: "wdth" 100;
+    }
+  </style>
+</head>
+
+<body class="w-full h-full">
+
+  <!-- Header -->
+  <header class="w-full h-42 flex flex-row items-center justify-center gap-4 bg-red-500">
+    <img src="images/android-chrome-192x192.png" alt="PDFMaker Logo" class="pl-10 pt-10 h-32 w-32">
+
+    <h1 class="pt-10 noto-sans-bold text-5xl text-white">PDF Maker</h1>
+
+    <label class="text-white">Upload any static&nbsp;
+      <div class="tooltip" data-tip="An HTML document that contains all the markup and styles, i.e., HTML & CSS only in a single file.">
+        <button class="btn btn-sm noto-sans-semibold-italic">Standalone(?)</button>
+      </div>
+      &nbsp;HTML Document or a Markdown File and Convert it to a <span class="noto-sans-semibold-italic">fully WCAG 2.1, WCAG 2.2, PDF/UA, and Section 508 compliance</span> PDF document.
+    </label>
+  </header>
+
+  <!-- Main -->
+  <main class="fixed left-0 top-42 bottom-2 right-0 flex flex-col items-center justify-start gap-4">
+
+    <!-- Document Upload Box -->
+    <div id="DOCUMENT__UPLOAD__BOX" class="mt-2 flex flex-col items-center justify-center gap-4">
+      <input type="file" id="FILE__INPUT" class="hidden" accept=".html,.md"/>
+
+      <div class="flex flex-row items-center justify-center gap-4">
+        <label class="input">
+          <span class="label">File:</span>
+          <p id="FILE__INPUT__NAME" class="noto-sans-semibold-italic text-center">No File Selected</p>
+        </label>
+
+        <button id="SELECT_FILE" role="button" class="btn btn-neutral" onclick="selectFile()">
+          Select File
+        </button>
+      </div>
+      
+      <button id="UPLOAD__STANDALONE__HTML__MARKDOWN" role="button" class="btn btn-primary" onclick="uploadToSever()" DISABLED>
+        Upload Standalone HTML / Markdown&nbsp;
+        <img src="images/upload_standalone_html_md.svg" alt="Upload Standalone HTML or Markdown File" class="w-8 h-8">
+      </button>
+    </div>
+
+    <!-- Show loading spinner while process is being done on backend. -->
+    <label class="mt-2 btn btn-neutral btn-block rounded-none">
+      &nbsp;<span id="SPINNER" class="loading loading-spinner" HIDDEN></span>
+      &nbsp;<span id="CURRENT__FILE__STATUS" HIDDEN>Processing</span>
+    </label>
+
+    <!-- Document Download Options -->
+    <div id="DOCUMENT__DOWNLOAD__BOX" class="mt-2 flex flex-row items-center justify-center gap-4">
+
+      <!-- Download to your device-->
+      <button id="DOWNLOAD__PDF" role="button" class="btn btn-success" DISABLED>
+        Download PDF to your device&nbsp;
+        <img src="images/download_pdf.svg" alt="Download PDF" class="w-8 h-8">
+      </button>
+
+      <!-- Send to Dropbox -->
+      <button id="SAVE__TO__DROPBOX" role="button" class="btn btn-success" DISABLED>
+        Save to Drobox&nbsp;
+        <img src="images/icons8-dropbox.svg" alt="Save To Dropbox" class="w-8 h-8">
+      </button>
+
+      <!-- Send to Google Drive -->
+      <button id="SAVE__TO__GOOGLE__DRIVE" role="button" class="btn btn-success" DISABLED>
+        Save to Google Drive&nbsp;
+        <img src="images/icons8-google-drive.svg" alt="Save To Google Drive" class="w-8 h-8">
+      </button>
+
+      <!-- Send to Microsoft OneDrive -->
+      <button id="SAVE__TO__MICROSOFT__ONEDRIVE" role="button" class="btn btn-success" DISABLED>
+        Save to Microsoft OneDrive&nbsp;
+        <img src="images/icons8-microsoft-onedrive-2019.svg" alt="Save To Microsoft OneDrive" class="w-8 h-8">
+      </button>
+
+      <!-- Send to iCloud -->
+      <button id="SAVE__TO__ICLOUD" role="button" class="btn btn-success" DISABLED>
+        Save to iCloud&nbsp;
+        <img src="images/icons8-icloud.svg" alt="Save To iCloud" class="w-8 h-8">
+      </button>
+    </div>
+
+    <!-- Document Error Logs -->
+    <h4 id="ERROR__LOG__TITLE" class="text-3xl noto-sans-bold text-center" HIDDEN>Error Logs for ➡ <span id="DOCUMENT__TITLE">Document Title</span></h4>
+    <div id="DOCUMENT__ERROR__LOGS" class="w-5/6 h-full overflow-x-auto" HIDDEN>
+      <table id="ERROR__LOGS__TABLE" class="table table-pin-rows bg-base-200"></table>
+    </div>
+  </main>
+
+  <footer class="fixed left-0 bottom-1 right-0 mb-1">
+    <label class="flex flex-row items-center justify-center gap-1 noto-sans-semibold">
+      <img src="images/copyright.svg" alt="Copyright" class="w-4 h-4">
+      &nbsp;2025 Vivek Vitthal Jadhav.
+    </label>
+  </footer>
+</body>
+
+<!-- Axios -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<!-- Script -->
+<script>
+  /*-- SCRIPT STARTS HERE  --*/
+  const X = axios
+
+  function selectFile() {
+    FILE__INPUT.click()
+  }
+
+  FILE__INPUT.addEventListener('change', function() {
+    if (FILE__INPUT.files.length > 0) {
+      FILE__INPUT__NAME.textContent = `${FILE__INPUT.files[0].name}`
+
+      UPLOAD__STANDALONE__HTML__MARKDOWN.removeAttribute('DISABLED')
+    } else if (FILE_INPUT.files.length === 0) {
+      FILE__INPUT__NAME.textContent = 'No file selected'
+      UPLOAD__STANDALONE__HTML__MARKDOWN.addAttribute('DISABLED', true)
+    } else {
+      FILE__INPUT__NAME.textContent = 'No file selected'
+      UPLOAD__STANDALONE__HTML__MARKDOWN.addAttribute('DISABLED', true)
+    }
+  })
+
+  // Upload to server.
+  function uploadToSever() {
+    let fileType = ''
+    // It's a Markdown
+    FILE__INPUT.files[0].type !== 'text/html' ? fileType = 'Markdown' : fileType = 'HTML'
+
+    // Run the spinning wheel.
+    Array.of('SPINNER', 'CURRENT__FILE__STATUS')
+    .forEach(Element => document.getElementById(Element)
+             .removeAttribute('HIDDEN'))
+
+    if (!FILE__INPUT.files[0]) {
+      alert('File Selection Failed 🛑')
+      return 
+    } else if (FILE__INPUT.files[0]) {
+      const POST_URL = 'http://localhost:3000/upload'
+      const FORM_DATA = new FormData()
+      FORM_DATA.append('file', FILE__INPUT.files[0])
+      const CONFIG = { 
+        headers: { 
+          'Content-Type' : 'multipart/form-data' 
+        }
+      }
+
+      X.post(POST_URL, FORM_DATA, CONFIG)
+      .then(Response => {
+        if (Response.data.issues.length > 0) {
+          SPINNER.setAttribute('HIDDEN', true)                                
+          CURRENT__FILE__STATUS.textContent = 'Accessibility Issues Found. Cannot generate PDF.'
+          ERROR__LOG__TITLE.removeAttribute('HIDDEN')                         
+          DOCUMENT__TITLE.textContent = Response.data.documentTitle
+          DOCUMENT__ERROR__LOGS.removeAttribute('HIDDEN')
+          populateTheErrorTable(Response.data.issues)
+        } else if (Response.data.issues.length === 0) {
+          SPINNER.setAttribute('HIDDEN', true)                                
+          CURRENT__FILE__STATUS.textContent = 'No accessibility issues found.'
+        } else {
+          alert('Failed to get response.')
+        }
+        console.log('Document Uploaded Successfully : ', Response.data)
+      })
+      .catch(Err => console.error('Error uploading document : ', Err))
+    }
+  }
+  
+  function populateTheErrorTable(Errors) {
+    Errors.forEach(Error => {
+      console.log(`All error : ${Error.context}`)
+      let contextAsText = Error.context
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+
+      ERROR__LOGS__TABLE.innerHTML += `
+      <div class="Error_Card">
+        <thead><tr><th class="text-center">Selector : ${Error.selector}</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Error Code</strong>: ${Error.code}</td></tr>
+          <tr><td><strong>Error Type</strong>: ${Error.type}</td></tr>
+          <tr><td><strong>Error Message</strong>: ${Error.message}</td></tr>
+          <tr><td><strong>Error Context</strong>: ${contextAsText}</td></tr>
+          <tr><td><strong>Error Runner</strong>: ${Error.runner}</td></tr>
+        </tbody>
+      </div>
+      `
+    })
+  }
+
+  /**
+   * @todo - Implement Later.
+   * @description - Await for server to respond with A11Yed PDF.
+   */
+  function observeServer() {}
+  /*-- SCRIPT ENDS HERE  --*/
+</script>
+</html>

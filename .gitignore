@@ -143,3 +143,4 @@ dist
 # database
 db.sqlite3
 >>>>>>> d537e90 (A11Y Part Complete)
+.vercel

@@ -5,6 +5,7 @@
   "main": "./src/appFront/app.js",
   "type": "module",
   "scripts": {
+    "start": "node ./src/server.js",
     "11serve": "eleventy --serve",
     "11build": "eleventy",
     "listen": "nodemon ./src/server.js",

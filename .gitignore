@@ -122,6 +122,9 @@ dist
 # DynamoDB Local files
 .dynamodb/
 
+# .DS_Store
+.DS_Store
+
 # TernJS port file
 .tern-port
 
@@ -134,3 +137,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+<<<<<<< HEAD
+=======
+
+# database
+db.sqlite3
+>>>>>>> d537e90 (A11Y Part Complete)

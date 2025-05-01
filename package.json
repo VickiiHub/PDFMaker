@@ -2,7 +2,7 @@
   "name": "pdfmaker",
   "version": "0.0.1",
   "description": "Generate PDF from Static HTML and Tailwind using '11TY' with Accessibility Support from 'Pa11y'.",
-  "main": "./src/appFront/app.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
     "start": "node ./src/server.js",

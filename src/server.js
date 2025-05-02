@@ -26,6 +26,12 @@ const UPLOAD = multer({ storage : STORAGE })
 
 SERVER.use(express.static(path.join(DIRNAME, 'public')))
 SERVER.use(express.static(path.join(DIRNAME, 'assets')))
+SERVER.use(cors({
+  origin: '*', // or restrict to your frontend URL
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}))
+SERVER.options('*', cors())
 
 // GET:
 SERVER.get('/', (Request, Response) => {
@@ -34,7 +40,7 @@ SERVER.get('/', (Request, Response) => {
 })
 
 // POST:
-SERVER.post('/upload', UPLOAD.single('file'), async (Request, Response) => {
+SERVER.post('/api/upload', UPLOAD.single('file'), async (Request, Response) => {
 
   if (Request.file) {
     const A11Y_ERRORS = await checkA11y(Request.file.path)

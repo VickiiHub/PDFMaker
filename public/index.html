@@ -310,7 +310,8 @@
       alert('File Selection Failed 🛑')
       return 
     } else if (FILE__INPUT.files[0]) {
-      const POST_URL = 'http://localhost:3000/upload'
+      // const POST_URL = 'http://localhost:3000/upload'
+      const POST_URL = 'https://pdfmaker-api.onrender.com/upload'
       const FORM_DATA = new FormData()
       FORM_DATA.append('file', FILE__INPUT.files[0])
       const CONFIG = { 

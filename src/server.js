@@ -24,13 +24,13 @@ const STORAGE = multer.diskStorage({
 })
 const UPLOAD = multer({ storage : STORAGE })
 
-SERVER.use(express.static(path.join(DIRNAME, 'view')))
-SERVER.use(express.static(path.join(DIRNAME, 'view/assets')))
+SERVER.use(express.static(path.join(DIRNAME, 'public')))
+SERVER.use(express.static(path.join(DIRNAME, 'assets')))
 
 // GET:
 SERVER.get('/', (Request, Response) => {
   LOG(`Request : ${Request.method}`)
-  Response.sendFile(path.join(DIRNAME, 'view/index.html'))
+  Response.sendFile(path.join(DIRNAME, 'public/index.html'))
 })
 
 // POST:

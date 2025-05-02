@@ -144,3 +144,4 @@ dist
 db.sqlite3
 >>>>>>> d537e90 (A11Y Part Complete)
 .vercel
+src/testA11y.mjs

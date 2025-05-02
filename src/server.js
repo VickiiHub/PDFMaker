@@ -30,7 +30,7 @@ SERVER.use(express.static(path.join(DIRNAME, 'assets')))
 // GET:
 SERVER.get('/', (Request, Response) => {
   LOG(`Request : ${Request.method}`)
-  Response.sendFile(path.join(DIRNAME, 'public/index.html'))
+  Response.sendFile(path.join(DIRNAME, '../public/index.html'))
 })
 
 // POST:

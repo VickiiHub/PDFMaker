@@ -40,7 +40,7 @@ SERVER.get('/', (Request, Response) => {
 })
 
 // POST:
-SERVER.post('/api/upload', UPLOAD.single('file'), async (Request, Response) => {
+SERVER.post('/upload', UPLOAD.single('file'), async (Request, Response) => {
 
   if (Request.file) {
     const A11Y_ERRORS = await checkA11y(Request.file.path)

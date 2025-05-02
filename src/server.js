@@ -24,6 +24,7 @@ const STORAGE = multer.diskStorage({
 })
 const UPLOAD = multer({ storage : STORAGE })
 
+SERVER.use(express.static(path.join(DIRNAME, 'view')))
 SERVER.use(express.static(path.join(DIRNAME, 'view/assets')))
 
 // GET:
